@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <title>Restaurante IFSP</title>
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: gray;
+    width: 100vw;
+}
+header nav {
+    width: calc(100% - 24px);
+    padding: .5rem;
+    position: fixed;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 1;
+    gap: .8rem;
+    /* background: linear-gradient(to right, white 15%, #6a6767 85%); */
+    background-color: #226015;
+    border: 4px double black;
+}
+
+header nav a {
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: cursive;
+    border: 4px double #0d9f0d;
+    border-radius: 10%;
+    padding: .5rem;
+    box-shadow: .1rem .1rem .2rem black;
+    background: linear-gradient(to right, #252525e0 15%, #1b1b1bed 70%);
+    text-shadow: 0.15rem .09rem 0.009rem black;
+    transition: all ease .3s;
+    color: white;
+    text-decoration: none;
+}
+
+header nav a:visited {
+    color: #ffffff;
+}
+
+header nav a:hover {
+    box-shadow: .6rem .1rem .2rem black;
+    text-shadow: none;
+    transform: scale(1.05);
+    background: #0d9f0d;
+    border-color: black;
+    color: black;
+}
+
+/* Mobile area */
+
+.nav-btn {
+    padding: 5px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: black;
+    display: none;
+    opacity: 0;
+    font-size: 2rem;
+    position: fixed;
+    z-index: 2;
+    width: 100vw;
+    text-align: left;
+}
+
+main {
+    height: 70vh;
+    overflow: scroll;
+}
+
+footer {
+    min-height: 30vh;
+    background-color: #0d9f0d;
+}
+
+footer {
+    border: 4px double black;
+    width: 100%;
+    background: #226015;
+    border-radius: 5px;
+    font-size: .9rem;
+    color: white;
+    font-family: Serif, Times New Roman;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1rem;
+    text-shadow: 1px 1px black;
+    min-height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .5rem;
+}
+
+footer > div {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+footer svg {
+    font-size: 3rem;
+    color: black;
+}
+
+footer span {
+    font-size: 1rem;
+}
+
+footer h3 {
+    font-size: .8rem;
+    color: #08ff00;
+    text-shadow: 1px 1px black;
+}
+
+.footer-icons {
+    display: flex;
+    justify-content: space-evenly;
+    gap: .5rem;
+    min-width: fit-content;
+    flex-wrap: wrap;
+}
+
+.footer-icons--click {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer-icons--click svg {
+    box-shadow: 3px 3px 3px black, -1px -1px 3px black;
+    cursor: pointer;
+    transition: all ease-in-out .3s;
+}
+
+.footer-icons--click svg:hover {
+    box-shadow: none;
+    cursor: pointer;
+}
+
+.footer-icons--noClick {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.footer-icons--noClick div {
+    display: flex;
+    align-items: center;
+}
+
+.footer-icons--noClick div svg{
+    font-size: 2rem;
+}
+
+.footer-icons--noClick div p {
+    font-size: .8rem;
+}
+
+/* Imagens */ 
+
+.wrapper-products {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 6rem;
+    justify-content: space-evenly;
+    cursor: pointer;
+}
+
+.main-cardProduct {
+    width: 30%;
+    height: 30%;
+    border: 4px double black;
+    transition: all ease-in .3s;
+    background-color: #000;
+}
+
+.main-cardProduct:hover {
+    transform: scale(1.05);
+    box-shadow: .6rem .1rem .2rem rgb(27, 27, 27);
+}
+
+.img--mediumSize {
+    width: 100%;
+    height: 100%;
+}
+
+.card-rating span {
+  color: #f0c040;
+  margin: 0.1rem;
+}
+
+.card-rating span:last-child {
+    color: white;
+}
+
+.card-rating {
+    width: max-content;
+    margin: 0 auto;
+}
+
+.wrapperImage {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.burger-title--container {
+    position: absolute;
+}
+
+.burger-title {
+    font-family: Press Start 2P, cursive;
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 3px 3px 2px #000,-2px -2px 2px #000;
+    color:#f0c040;
+    margin: 1rem;
+
+}
+
+.burger-price {
+    font-family: Press Start 2P, cursive;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-shadow: 3px 3px 2px #000,-2px -2px 2px #000;
+    color:#f0c040;
+    text-align: center;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav id="navbar-container" ref={navRef} >
+            <a href="/">Home</a>
+            <div>
+                <a href="/cart">Carrinho</a>
+                <a href="/signin">Logar</a>     
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="wrapper-products">
+            <div class="main-cardProduct">
+                <div class="wrapperImage">
+                    <img class="img--mediumSize" src="https://conteudo.imguol.com.br/c/entretenimento/ee/2022/04/28/hamburguer-sanduiche-lanche-1651166602338_v2_4x3.jpg" alt="Lanchão boladu">
+                    <div class="burger-title--container">
+                        <h1 class="burger-title">Big Boss</h1>
+                        <span class="burger-price"><p>15,99 R$</p></span>
+                    </div>
+                </div>              
+                <div class="card-rating" >    
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star-half-o"></i></span>
+                    <span>150 Avaliações</span>
+                </div>
+            </div>
+            <div class="main-cardProduct">
+                <div class="wrapperImage">
+                    <img class="img--mediumSize" src="https://conteudo.imguol.com.br/c/entretenimento/ee/2022/04/28/hamburguer-sanduiche-lanche-1651166602338_v2_4x3.jpg" alt="Lanchão boladu">
+                    <div class="burger-title--container">
+                        <h1 class="burger-title">Big Brother</h1>
+                        <span class="burger-price"><p>99,99 R$</p></span>
+                    </div>
+                </div>              
+                <div class="card-rating" >    
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star-half-o"></i></span>
+                    <span>150 Avaliações</span>
+                </div>
+            </div>
+            <div class="main-cardProduct">
+                <div class="wrapperImage">
+                    <img class="img--mediumSize" src="https://conteudo.imguol.com.br/c/entretenimento/ee/2022/04/28/hamburguer-sanduiche-lanche-1651166602338_v2_4x3.jpg" alt="Lanchão boladu">
+                    <div class="burger-title--container">
+                        <h1 class="burger-title">Big Boobs</h1>
+                        <span class="burger-price"><p>2,00 R$</p></span>
+                    </div>
+                </div>              
+                <div class="card-rating" >    
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star-half-o"></i></span>
+                    <span>150 Avaliações</span>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div>
+            <div class='footer-description'>
+              <p>Restaurante Raverterelli</p>
+              <p>Sonin Bleinin<span>✓</span></p>
+            </div>
+            <div class='footer-icons'>
+              <div class='footer-icons--click'>
+                <a href="https://www.github.com/WelBert-dev" target="_blank"></a>
+                <a href="https://web.facebook.com/wellison.bertelli.7" target="_blank"></a>
+                <a href="https://www.linkedin.com/in/wellison-bertelli-2191ba204" target="_blank"></a>
+                <a href="https://www.instagram.com/lunatic_bertelli/" target="_blank"></a>
+              </div>
+              <div className='footer-icons--noClick'>
+                <div>
+                  <p>(11) 9 4298-9935</p>
+                </div>
+                <div>
+                  <p>raverterelli@hotmail.com</p>
+                </div>
+              </div>
+            </div>
+            <div class='footer-copyright'>
+                <h3>Copyright ©2022</h3>
+                <h3>Licença: GPL v3.0</h3>
+            </div>
+          </div>
+    </footer>
+</body>
+</html>

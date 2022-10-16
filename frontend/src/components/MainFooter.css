@@ -1,0 +1,120 @@
+footer {
+    border-radius: 5px ;
+    width: 100%;
+    background: white;
+    border-radius: 5px;
+    font-size: .9rem;
+    color: black;
+    font-family: Helvetica;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1rem;
+    min-height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .5rem;
+}
+
+footer > div {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+footer svg {
+    font-size: 3rem;
+    color: black;
+}
+
+footer span {
+    font-size: 1rem;
+}
+
+footer h3 {
+    font-family: Helvetica;
+    font-size: .8rem;
+    color: black;
+    font-weight: bold;
+}
+
+.footer-icons {
+    display: flex;
+    justify-content: space-evenly;
+    gap: .5rem;
+    min-width: fit-content;
+    flex-wrap: wrap;
+}
+
+.footer-icons--click {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer-icons--click svg {
+    box-shadow: 3px 3px 3px black, -1px -1px 3px black;
+    cursor: pointer;
+    transition: all ease-in-out .3s;
+}
+
+.footer-icons--click svg:hover {
+    box-shadow: none;
+    cursor: pointer;
+}
+
+.footer-icons--noClick {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.footer-icons--noClick div {
+    display: flex;
+    align-items: center;
+}
+
+.footer-icons--noClick div svg{
+    font-size: 2rem;
+}
+
+.footer-icons--noClick div p {
+    font-size: .8rem;
+}
+
+
+@media (max-width: 800px)
+{
+    .footer-icons--click svg {
+        font-size: 2rem;
+    }
+
+    .footer-icons--noClick div svg {
+        font-size: 1.5rem;
+    }
+
+    footer span {
+        font-size: 1.2rem;
+    }
+    
+    footer h3 {
+        font-size: .7rem;
+        color: #08ff00;
+        text-shadow: 1px 1px black;
+    }
+}
+
+
+@media (max-width: 400px)
+{
+    .footer-icons {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .footer-icons--noClick {
+        align-items: center;
+    }
+}
